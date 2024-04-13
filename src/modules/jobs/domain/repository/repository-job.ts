@@ -1,13 +1,12 @@
+import { BaseRepository } from '../../../../lib/base-repositories';
 import { IDataLinkJob } from '../../data/interfaces/interfaces-data-link-job';
 import { ICreateJobData, IUpdateJobData } from '../entities/entity-job';
 import { IRepositoryJob } from '../interface/repository/interface-repository-job';
 import { IWhereJob } from '../usecases/utils/type';
 
-class RepositoryJob implements IRepositoryJob {
-  private link: IDataLinkJob;
-
+class RepositoryJob extends BaseRepository<IDataLinkJob> implements IRepositoryJob {
   constructor(link: IDataLinkJob) {
-    this.link = link;
+    super(link);
   }
 
   public createJob: IRepositoryJob['createJob'] = async (data: ICreateJobData) => {

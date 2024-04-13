@@ -1,8 +1,6 @@
-import { IDataLinkCompany } from '../modules/companies/data/interfaces/data-links';
-
-abstract class BaseRepository {
-  protected readonly link: IDataLinkCompany;
-  constructor(link: IDataLinkCompany) {
+abstract class BaseRepository<T extends object> {
+  protected readonly link: T;
+  constructor(link: T) {
     this.link = link;
   }
 }
