@@ -1,6 +1,6 @@
 ARG NODE_VERSION=18
 
-FROM node:${NODE_VERSION} AS builder
+FROM --platform=linux/amd64 node:${NODE_VERSION}-bullseye AS builder
 
 ARG PNPM_VERSION=8.6.2
 
@@ -24,7 +24,7 @@ COPY src/ ./src/
 
 RUN pnpm tsc
 
-FROM node:${NODE_VERSION}-alpine
+FROM --platform=linux/amd64 node:${NODE_VERSION}-bullseye
 
 ARG SVC_PORT=8080
 
