@@ -1,0 +1,9 @@
+services:
+  server:
+    build:
+      context: .
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: mongodb+srv://admin:Y8yeogU5gf3lpqYz@mg-jobs-db.hbgasbv.mongodb.net/jobs?retryWrites=true&w=majority&appName=mg-jobs-db
+    ports:
+      - 8000:8000
